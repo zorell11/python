@@ -1,0 +1,3 @@
+Name Guesses Time
+Peter	45	00:00:22
+zoli	21	00:01:39
