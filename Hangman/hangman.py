@@ -1,6 +1,11 @@
 import random
-words = ['Hangman', 'available', 'increase']
 
+def read_word(file):
+    with open(file, 'r') as fp:
+        content = fp.read().splitlines()
+    choosen_word = random.choice(content)
+    print(choosen_word)
+    return choosen_word
 
 def get_letter(guess_available):
     letter = input('Guess a letter (' + str(guess_available) + ' guesses available): ')
@@ -21,19 +26,17 @@ def replace_letters(letter, guess, choosen_word):
 
 
 
-def main(words):
-    choosen_word = random.choice(words)
-    print(choosen_word)
-    guess = ['_'] * len(choosen_word)
+def main():
+    file_name = 'dictionary'
+    choosen_word = read_word(file_name)
+    guess = [ ' ' if i == ' ' else '_' for i in choosen_word]
     print('I am thinking of a word. What word is it?:')
     print(' '.join(guess))
     guess_available = 9
 
     while True:
-
         letter = get_letter(guess_available)
         guess = replace_letters(letter, guess, choosen_word)
-
         print(' '.join(guess))
 
         if ''.join(guess) == choosen_word:
@@ -45,4 +48,4 @@ def main(words):
             print('\nYou have lost. The word was:\n' + choosen_word)
             break
 
-main(words)
+main()
