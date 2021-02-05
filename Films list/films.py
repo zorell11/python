@@ -19,7 +19,7 @@ Rank,Rating,Title,Year,No. of Reviews
 import os
 import csv
 
-file_path ="C:\\Users\\zveres\\Desktop\\docx\\learning\\python\\github\\Films list"
+file_path ="."
 FILE_NAME = 'movies.csv'
 FILE_NAME_2 = 'movies_2.csv'
 
